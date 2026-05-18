@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Categorías</h2>
+    <a routerLink="/categorias/crear" class="btn btn-primary">Agregar Categoría</a>
+  </div>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th width="180">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of categorias">
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.descripcion }}</td>
+        <td>
+          <a [routerLink]="['/categorias/editar', c._id]" class="btn btn-warning btn-sm me-2">Editar</a>
+          <button class="btn btn-danger btn-sm" (click)="eliminar(c._id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

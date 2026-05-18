@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>{{ id ? 'Editar' : 'Nuevo' }} Producto</h2>
+  <form (ngSubmit)="guardar()">
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input class="form-control" [(ngModel)]="producto.nombre" name="nombre" required>
+    </div>
+    <div class="mb-3">
+      <label>Precio</label>
+      <input type="number" class="form-control" [(ngModel)]="producto.precio" name="precio" required>
+    </div>
+    <div class="mb-3">
+      <label>Stock</label>
+      <input type="number" class="form-control" [(ngModel)]="producto.stock" name="stock">
+    </div>
+    <div class="mb-3">
+      <label>Categoría</label>
+      <select class="form-control" [(ngModel)]="producto.categoria" name="categoria">
+        <option value="">-- Seleccionar --</option>
+        <option *ngFor="let c of categorias" [value]="c._id">{{ c.nombre }}</option>
+      </select>
+    </div>
+    <button class="btn btn-success">Guardar</button>
+    <a routerLink="/productos" class="btn btn-secondary ms-2">Cancelar</a>
+  </form>
+</div>
